@@ -12,5 +12,5 @@
 */
 
 Route::get('/', 'PostController@index');
-Route::get('/posts/{post}', 'PostController@shpw');
+Route::get('/posts/{post}', 'PostController@show');
 
