@@ -6,7 +6,7 @@ use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {  
-  //$Post=new post();のような感じ
+  //$post=new Post();のような感じ
     public function index(Post $post)
  {
     return view('index')->with(['posts' => $post->getPaginateByLimit()]);  
@@ -28,5 +28,15 @@ class PostController extends Controller
       $post->fill($input)->save();
       //idを取得して記事詳細画面に遷移させる
      return redirect('/posts/' . $post->id);
+ }
+ public function edit(Post $post){
+     return view('edit')->with(['post' => $post]);
+ }
+ public function update(PostRequest $request, Post $post)
+ {
+   $input = $request['post'];
+   $post->fill($input)->save();
+   
+   return redirect('/posts/' . $post->id);
  }
 }

@@ -12,8 +12,9 @@
        <h1 class="title">
            {{ $post->title }}
        </h1>
+      <p class="edit">[<a href="/posts/{{ $post->id }}/edit">edit</a>]</p>
        <div class="content">
-           <div class="conten__post">
+           <div class="content__post">
                <h3>本文</h3>
                <p>{{ $post->body }}</p>
            </div>
